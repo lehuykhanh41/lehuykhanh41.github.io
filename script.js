@@ -23,7 +23,6 @@ images = [
   {"name": "Eagle SMILE", "src":"img/20230106030032.jpg"},
   {"name":"Bird-Bird Fruit, Model: Phoenix", "src":"img/20230106030126.jpg"},
   {"name":"Snake-Snake Fruit, Model: Yamata no Orochi", "src":"img/20230106030232.jpg"},
-  {"name":"1000 KIM CƯƠNG", "src":"img/20230108003242.jpg"}
 ];
 //Special=5,6,11,12,16,17,19,20,22,23
 
@@ -43,20 +42,21 @@ function changeImg(){
 
 function startCycle() {
 
+  let timey = Math.random() * 100 + 2000;
+
   return new Promise(function(resolve, reject) { 
          let s = setInterval(changeImg, 50);
-           setTimeout(()=>{clearInterval(s); resolve;}, 2000); 
-
-setTimeout(resolve,2000);
+         setTimeout(()=>{clearInterval(s); resolve;}, timey); 
+         setTimeout(resolve, timey);
 
         }).then(function() { 
            if (currName.includes("SMILE")) {
-  document.getElementById("Description").innerHTML = "Quay ra được mỗi quả SMILE thui. Xin lỗi nha, chúc bạn may mắn lần sau";
+  document.getElementById("Description").innerHTML = "Unfortunately, it's just a " + currName + "...";
 } else if (currName.includes("Fruit")){
 DFCount++;
-document.getElementById("Description").innerHTML = "Quay ra Trái Ác Quỷ xịn rồi ! Quay đủ 5 Trái Ác Quỷ để đổi quà nhé !\nHiện đã có " + DFCount + " trái.";
-} else {
-document.getElementById("Description").innerHTML = "VÃI CẢ LỜ CHÚC MỪNG BẠN ĐÃ TRÚNG ACC 1000 KIM CƯƠNG !!!!"
+document.getElementById("Description").innerHTML = "From the index, you can tell it's a " + currName + " ! This crazy power will lead you to the new era !";
 }
+
+document.getElementById("startGacha").innerHTML = "TRY AGAIN";
         }); 
 }
