@@ -1,38 +1,39 @@
 images = [
-  {"name":"Sheep SMILE", "src":"img/SheepSMILE.jpg"},
-  {"name":"Monkey SMILE", "src":"img/20230106025948.jpg"},
-  {"name":"Elephant SMILE", "src":"img/20230106030017.jpg"},
-  {"name":"Bat SMILE", "src":"img/20230106030013.jpg"},
-  {"name":"Bull SMILE", "src":"img/20230106030039.jpg"},
-  {"name":"Dark-Dark Fruit", "src":"img/20230106124707.jpg"},
-  {"name":"Flame-Flame Fruit", "src":"img/20230106124703.jpg"},
-  {"name": "Lion SMILE", "src":"img/20230106030048.jpg"},
-  {"name": "Snake SMILE", "src":"img/20230106025939.jpg"},
-  {"name": "Peacock SMILE", "src":"img/20230106025909.jpg"},
-  {"name": "Bear SMILE", "src":"img/20230106025934.jpg"},
-  {"name":"Smoke-Smoke Fruit", "src":"img/20230106125154.jpg"},
-  {"name":"String-String Fruit", "src":"img/20230106125157.jpg"},
-  {"name": "Tiger SMILE", "src":"img/20230106030044.jpg"},
-  {"name": "Alpaca SMILE", "src":"img/20230106030008.jpg"},
-  {"name": "Horse SMILE", "src":"img/20230106030022.jpg"},
-  {"name":"Fish-Fish Fruit, Model: Dragon", "src":"img/20230106124819.jpg"},
-  {"name":"Ope-Ope Fruit", "src":"img/20230106124945.jpg"},
-  {"name": "Scorpion SMILE", "src":"img/20230106025957.jpg"},
-  {"name":"Magnet-Magnet Fruit", "src":"img/20230106125129.jpg"},
-  {"name":"Flower-Flower Fruit", "src":"img/20230106125149.jpg"},
-  {"name": "Eagle SMILE", "src":"img/20230106030032.jpg"},
-  {"name":"Bird-Bird Fruit, Model: Phoenix", "src":"img/20230106030126.jpg"},
-  {"name":"Snake-Snake Fruit, Model: Yamata no Orochi", "src":"img/20230106030232.jpg"},
+  {"name":"Uta", "src":"img/SR1UTA.jpg"},
+  {"name":"Hiyori", "src":"img/SR2HIYORI.jpg"},
+  {"name":"Nico Robin", "src":"img/SR3ROBIN.jpg"},
+  {"name":"Nami", "src":"img/SR4NAMI.jpg"},
+  {"name":"Boa Hancock", "src":"img/SR5HANCOCK.jpg"},
+  {"name":"Perona", "src":"img/SR6PERONA.jpg"},
+  {"name":"Reiju", "src":"img/SR7REIJU.jpg"},
+  {"name": "Shirahoshi", "src":"img/SR8SHIRAHOSHI.jpg"},
+  {"name": "Vivi", "src":"img/SR9VIVI.jpg"},
+  {"name": "Ulti", "src":"img/NML1ULTI.png"},
+  {"name":"Hina", "src":"img/NML2HINA.jpg"},
+  {"name": "Stussy", "src":"img/NML3STUSSY.jpg"},
+  {"name":"Black Maria", "src":"img/NML4BLACKMARIA.jpg"},
+  {"name": "Big Mom", "src":"img/UK1BM.jpg"},
+  {"name":"Ivankov", "src":"img/UK2IVANKOV.jpg"},
+  {"name": "Shinobu", "src":"img/UK3SHINOBU.jpg"},
+  {"name": "Lola", "src":"img/UK4LOLA.jpg"},
+  {"name":"Alvida", "src":"img/UK5ALVIDA.jpg"},
+  {"name": "Mermail Kokoro", "src":"img/UK6KOKORO.jpg"},
+  {"name":"'Authentic' Nami", "src":"img/UK7FAKENAMI.jpg"},
+  {"name":"'Authentic Robin'", "src":"img/UK8FAKEROBIN.jpg"},
+  {"name": "Elder Nyon", "src":"img/U9ELDER.jpg"},
+  {"name": "Lovely Black Beard", "src":"img/SSRBB.jpg"},
 ];
 //Special=5,6,11,12,16,17,19,20,22,23
 
-imgIndex = 0;
+let imgIndex = 0;
 let currName = "";
-let DFCount = 0;
+let sourceIMG = "";
+let startCount = 0;
 
 function changeImg(){
   document.getElementById("slideshow").src = images[imgIndex].src;
   currName = images[imgIndex].name;
+  sourceIMG = images[imgIndex].src;
   if(images.length > imgIndex+1){
     imgIndex++;
   } else {
@@ -42,7 +43,7 @@ function changeImg(){
 
 function startCycle() {
 
-  let timey = Math.random() * 100 + 2000;
+  let timey = Math.random() * 140 + 2000;
 
   return new Promise(function(resolve, reject) { 
          let s = setInterval(changeImg, 50);
@@ -50,11 +51,14 @@ function startCycle() {
          setTimeout(resolve, timey);
 
         }).then(function() { 
-           if (currName.includes("SMILE")) {
-  document.getElementById("Description").innerHTML = "Unfortunately, it's just a " + currName + "...";
-} else if (currName.includes("Fruit")){
-DFCount++;
-document.getElementById("Description").innerHTML = "From the index, you can tell it's a " + currName + " ! This crazy power will lead you to the new era !";
+           if (sourceIMG.charAt(4) == 'S' && sourceIMG.charAt(5) != 'S') {
+  document.getElementById("Description").innerHTML = "A lovely " + currName + " appeared before you, ready for an amazing adventure.";
+} else if (sourceIMG.charAt(4) == 'U'){
+document.getElementById("Description").innerHTML = "Congratulations !!!! Your waifu is the wildest " + currName; 
+} else if (sourceIMG.charAt(4) == 'N'){
+  document.getElementById("Description").innerHTML = currName + " comes by you, and hopefully, you will have a 'safe' experience....";
+} else if (sourceIMG.charAt(4) == 'S' && sourceIMG.charAt(5) == 'S'){
+  document.getElementById("Description").innerHTML = "Good luck bro.....";
 }
 
 document.getElementById("startGacha").innerHTML = "TRY AGAIN";
