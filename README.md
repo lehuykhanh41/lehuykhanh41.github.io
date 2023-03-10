@@ -1,14 +1,3 @@
-# AUDIENCE PROFILE:
-Audience: CS Student
-Venue: README on ___ Pages
-Purpose: Explain how to host a resume on ___ Pages.
-Additional purpose: Introduce and demonstrate the principles of Andrew Etter's book Modern Technical Writing
-Desired Reaction: Approval, Understandable.
-Vocabulary: Technical, Straight to the point.
-Tone: Serious and Technical Tone. 
-
----
-
 # HOW TO HOST YOUR RESUME ON GIT HUB PAGE WITH THE AID OF JEKYLL
 
 This document is made to show how to host your resume on an online website. In short, in order to to this, you will need to use Markdown, Git Hub and Jekyll. The practical step-by-step process about how to accomplish this will be shown below.
